@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İşletim Sistemleri Konu Seçim Formu</title>
+  <link rel="stylesheet" href="Google_sheet.css">
+</head>
+
+<body>
+
+  <div class="page">
+    <div class="form-card">
+
+      <div class="brand-header">
+        <div class="brand-logo">
+          <img src="logo.png" alt="İstanbul Gelişim Üniversitesi Logosu">
+        </div>
+
+        <div class="brand-text">
+          <span>İstanbul Gelişim Üniversitesi</span>
+          <strong>Yazılım Mühendisliği Bölümü</strong>
+        </div>
+      </div>
+
+      <div class="course-panel">
+        <div class="course-code">YZM210</div>
+
+        <h1>Kullanıcı Arayüzü Programlama</h1>
+
+        <div class="form-title">Ödev Konu Seçim Formu</div>
+
+        <p>
+          Lütfen bilgilerinizi eksiksiz girerek şubenizi seçiniz ve belirlediğiniz konuyu sisteme kaydediniz.
+        </p>
+      </div>
+
+      <form method="post" name="contact-form">
+
+        <div class="input-group">
+          <label>Öğrenci No</label>
+          <input type="text" name="ogrenciNo" placeholder="Öğrenci numaranızı giriniz" required>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Ad</label>
+            <input type="text" name="ad" placeholder="Adınızı giriniz" required>
+          </div>
+
+          <div class="input-group">
+            <label>Soyad</label>
+            <input type="text" name="soyad" placeholder="Soyadınızı giriniz" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Şube</label>
+          <select name="sube" required>
+            <option value="">Şube seçiniz</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Konu</label>
+          <input type="text" name="konu" placeholder="Seçtiğiniz konuyu yazınız" required>
+        </div>
+
+        <button type="submit" id="submit">Kayıt Et</button>
+
+      </form>
+
+      <p id="mesaj"></p>
+
+      <div class="footer-note">
+        Her öğrenci yalnızca kendi bilgileri ile kayıt oluşturmalıdır.
+      </div>
+
+    </div>
+  </div>
+
+  <div id="loadingScreen" class="loading-screen">
+    <div class="spinner"></div>
+    <p>Kaydınız oluşturuluyor, lütfen bekleyiniz...</p>
+  </div>
+
+  <script src="Google_sheet.js"></script>
+
+</body>
+</html>

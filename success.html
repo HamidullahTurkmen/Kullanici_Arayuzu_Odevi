@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayıt Başarılı</title>
+  <link rel="stylesheet" href="Google_sheet.css">
+</head>
+
+<body>
+
+  <div class="page">
+    <div class="success-card wide-card">
+
+      <div class="success-icon">✅</div>
+
+      <h1>İşleminiz Başarıyla Kayıt Edilmiştir</h1>
+
+      <p class="success-text">
+        Aşağıda sisteme kayıt olan tüm öğrencilerin listesi yer almaktadır.
+      </p>
+
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Sıra</th>
+              <th>Öğrenci No</th>
+              <th>Ad</th>
+              <th>Soyad</th>
+              <th>Şube</th>
+              <th>Konu</th>
+              <th>Kayıt Tarihi</th>
+            </tr>
+          </thead>
+
+          <tbody id="kayitListesi">
+            <tr>
+              <td colspan="7" class="center-text">
+                <div class="table-loading">
+                  <div class="small-spinner"></div>
+                  <span>Kayıt listesi yükleniyor...</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a href="index.html" class="back-btn">Yeni Kayıt Oluştur</a>
+
+    </div>
+  </div>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0ZK0U1CNmmHn8wZEbheqqNSZHgjAZ6HcvvgZ8uX83N1UEDNdmPM7iP2Ymu-le69Dg/exec";
+
+    function createCell(value) {
+      const td = document.createElement("td");
+      td.textContent = value || "";
+      return td;
+    }
+
+    function showMessage(message) {
+      const tbody = document.getElementById("kayitListesi");
+      tbody.innerHTML = "";
+
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+
+      td.colSpan = 7;
+      td.className = "center-text";
+      td.textContent = message;
+
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    }
+
+    function showLoading() {
+      const tbody = document.getElementById("kayitListesi");
+
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="7" class="center-text">
+            <div class="table-loading">
+              <div class="small-spinner"></div>
+              <span>Kayıt listesi yükleniyor...</span>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+
+    window.kayitlariGoster = function(data) {
+      const tbody = document.getElementById("kayitListesi");
+
+      if (!tbody) {
+        alert("kayitListesi alanı bulunamadı.");
+        return;
+      }
+
+      tbody.innerHTML = "";
+
+      if (!data || data.length === 0) {
+        showMessage("Henüz kayıt bulunmamaktadır.");
+        return;
+      }
+
+      data.forEach(function(item, index) {
+        const tr = document.createElement("tr");
+
+        tr.appendChild(createCell(index + 1));
+        tr.appendChild(createCell(item.ogrenciNo));
+        tr.appendChild(createCell(item.ad));
+        tr.appendChild(createCell(item.soyad));
+        tr.appendChild(createCell(item.sube));
+        tr.appendChild(createCell(item.konu));
+        tr.appendChild(createCell(item.zaman));
+
+        tbody.appendChild(tr);
+      });
+    };
+
+    window.addEventListener("load", function() {
+      showLoading();
+
+      const script = document.createElement("script");
+      script.src = SCRIPT_URL + "?callback=kayitlariGoster&t=" + new Date().getTime();
+
+      script.onerror = function() {
+        showMessage("Kayıtlar yüklenemedi. Apps Script URL adresini kontrol ediniz.");
+      };
+
+      document.body.appendChild(script);
+    });
+  </script>
+
+</body>
+</html>
