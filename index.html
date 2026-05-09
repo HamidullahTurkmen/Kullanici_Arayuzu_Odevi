@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kullanıcı Arayüzü Programlama Konu Seçim Formu</title>
+  <title>YZM210 Kullanıcı Arayüzü Programlama Konu Listesi</title>
   <link rel="stylesheet" href="Google_sheet.css">
 </head>
 
@@ -28,65 +28,19 @@
 
         <h1>Kullanıcı Arayüzü Programlama</h1>
 
-        <div class="form-title">Ödev Konu Seçim Formu</div>
+        <div class="form-title">Ödev Konu Listesi</div>
 
         <p>
-          Lütfen bilgilerinizi eksiksiz girerek şubenizi seçiniz ve belirlediğiniz konuyu sisteme kaydediniz.
+          Sisteme eklenen proje/ödev konu listesini görüntülemek için aşağıdaki butona tıklayınız.
         </p>
       </div>
 
-      <form method="post" name="contact-form">
-
-        <div class="input-group">
-          <label>Öğrenci No</label>
-          <input type="text" name="ogrenciNo" placeholder="Öğrenci numaranızı giriniz" required>
-        </div>
-
-        <div class="row">
-          <div class="input-group">
-            <label>Ad</label>
-            <input type="text" name="ad" placeholder="Adınızı giriniz" required>
-          </div>
-
-          <div class="input-group">
-            <label>Soyad</label>
-            <input type="text" name="soyad" placeholder="Soyadınızı giriniz" required>
-          </div>
-        </div>
-
-        <div class="input-group">
-          <label>Şube</label>
-          <select name="sube" required>
-            <option value="">Şube seçiniz</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label>Konu</label>
-          <input type="text" name="konu" placeholder="Seçtiğiniz konuyu yazınız" required>
-        </div>
-
-        <button type="submit" id="submit">Kayıt Et</button>
-
-      </form>
-
-      <p id="mesaj"></p>
-
-      <div class="footer-note">
-        Her öğrenci yalnızca kendi bilgileri ile kayıt oluşturmalıdır.
-      </div>
+      <a href="success.html" class="list-btn">
+        Seçilen Konu Listesini Görmek İçin Tıklayınız!
+      </a>
 
     </div>
   </div>
-
-  <div id="loadingScreen" class="loading-screen">
-    <div class="spinner"></div>
-    <p>Kaydınız oluşturuluyor, lütfen bekleyiniz...</p>
-  </div>
-
-  <script src="Google_sheet.js"></script>
 
 </body>
 </html>
