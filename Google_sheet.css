@@ -228,7 +228,7 @@ select {
   gap: 16px;
 }
 
-/* Buton */
+/* Kayıt Et butonu */
 button {
   width: 100%;
   padding: 15px;
@@ -254,6 +254,37 @@ button:disabled {
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
+}
+
+/* Konu listesini görme butonu */
+.list-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 540px;
+  margin: 30px auto 0;
+  padding: 18px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8, #1e40af);
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.28);
+  transition: 0.25s ease;
+}
+
+.list-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 36px rgba(37, 99, 235, 0.38);
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.list-btn:active {
+  transform: translateY(0);
 }
 
 #mesaj {
@@ -505,6 +536,12 @@ tbody tr:last-child td {
     padding: 13px;
   }
 
+  .list-btn {
+    margin-top: 20px;
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+
   .footer-note {
     margin-top: 10px;
     padding: 10px;
@@ -579,6 +616,13 @@ tbody tr:last-child td {
   .row {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .list-btn {
+    max-width: 100%;
+    font-size: 16px;
+    padding: 15px;
+    margin-top: 24px;
   }
 }
 
@@ -655,6 +699,13 @@ tbody tr:last-child td {
   button {
     font-size: 17px;
     padding: 14px;
+  }
+
+  .list-btn {
+    font-size: 15px;
+    padding: 14px;
+    border-radius: 16px;
+    margin-top: 22px;
   }
 
   .footer-note {
